@@ -3,7 +3,7 @@ const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 const { token } = require('./config.json');
 
-const { init, getResourceNames } = require('./sheet-interact.js');
+const { init, getCurrentStoresNumeric } = require('./sheet-interact.js');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -78,4 +78,4 @@ client.on(Events.InteractionCreate, async interaction => {
 client.login(token);
 console.log("Logged in");
 
-init().then(() => getResourceNames().then(forces => console.log(forces)));
+init().then(() => getCurrentStoresNumeric().then(forces => console.log(forces)));
